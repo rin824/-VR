@@ -1,0 +1,58 @@
+using System;
+
+namespace honnbann
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+
+            double[] conded = new double[n];
+
+            double [] deconded = new double [n-3];
+
+            for (int i = 0; i < n;++i)
+            {
+                conded[i] = int.Parse(Console.ReadLine());
+
+            }
+            double A = conded[0];
+            double B = conded[1];
+            double C = conded[2];
+            int a = (int)A;
+            int b = (int)B;
+            int c = (int)C; 
+            for (int i = 3; i < n; ++i)
+            {
+                if (2*(a*b) + c != 0 || c != 0 )
+                {
+                    deconded[i - 3] = Math.Sqrt((conded[i] - C) / A) - B;
+                    int gk = (int)conded[i - 3];
+                   
+                    if(gk > 26 )
+                    {
+                        conded[i-3] = 00.00;
+
+                    }
+
+                }
+
+                else
+                {
+                    Console.WriteLine("復元されません");
+                }
+
+            }
+
+            for (int i = 0; i < n - 3; ++i)
+            {
+                Console.WriteLine(deconded[i]);
+            }
+
+            
+
+
+        }
+    }
+}
